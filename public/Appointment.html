@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="images/Perview-2.png"/>
+            <h1>A small step today can make a big difference for your family’s future</h1>
+            <a href="/about.html">About</a>
+            <a href="/home.html">Home</a>
+        </nav>
+    </header>
+    <div class="appointment">
+        <main>
+        <div class="appointment-container">
+            <h1>Book an free Appointment</h1>
+            <form id="appointmentForm" action="/book" method="POST">
+            <label for="fullname">FullName:</label>
+            <input type="text" name="fullname" id="fullname" placeholder="Enter your FullName" required>
+            <label for="phonenumber">Mobile Number</label>
+            <input type="number" name="phonenumber" id="phonenumber" placeholder="Enter your Mobile Number" required>
+            <label for="profession">Profession</label>
+            <input type="text" name="profession" id="profession"  placeholder="Enter your Profession">
+            <label for="insurancedetails">Insured for:</label>
+            <input type="text" name="insurancedetails" id="insurancedetails" placeholder="Purpose of your Insurance planning">
+            <label for="qppointment_date">Appointment date:</label>
+            <input type="date" name="appointment_date" id="appointment_date" required>
+            <label for="appointment_time">Appointment time: </label>
+            <input type="time" name="appointment_time" id="appointment_time" required>
+            <button type="submit">Book the appointment</button>
+            </form>
+        </div>
+    </main>
+   
+    </div>
+    <footer>
+        <div class="contact">
+        
+            <p>
+                <i class="fas fa-phone"></i> 
+                <a href="tel:+1234567890">+91 9944511845</a>
+            </p>
+            <p>
+                <i class="fas fa-envelope"></i> 
+                <a href="mailto:vmraj67lic@gmail.com">vmraj67lic@gmail.com</a>
+            </p>
+            <p>
+                <i class="fab fa-instagram"></i> 
+                <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
+            </p>
+            <p>
+                <i class="fab fa-linkedin"></i> 
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            </p>
+
+    </div>
+    </footer>
+    <script>
+        document.getElementById('appointment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+        
+            const phoneNumber = document.getElementById('phonenumber').value;
+            const appointmentDate = document.getElementById('appointment-date').value;
+        
+            // Validate Phone Number
+            if (!validatePhoneNumber(phoneNumber)) {
+                alert('Please enter a valid 10-digit phone number.');
+                return; // Exit the function
+            }
+        
+            // Validate Appointment Date
+            if (!validateAppointmentDate(appointmentDate)) {
+                alert('Appointment date cannot be in the past.');
+                return; // Exit the function
+            }
+        
+            // If validation passes, you can proceed to submit the form data
+            // For example, using AJAX or Fetch API to send data to your server
+            console.log('Validation successful! Proceeding with form submission...');
+            // Add your form submission logic here (e.g., fetch, axios)
+        });
+        </script>
+    
+</body>
+</html>
