@@ -10,41 +10,32 @@ body {
 }
 
 @keyframes backgroundMove {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 header nav {
     display: flex;
-    flex-direction: column; /* Change to column for small screens */
+    flex-direction: column; /* Change to column for smaller screens */
+    justify-content: center;
     align-items: center;
     background-color: #0056b3;
     color: #F1C40F;
-    padding: 20px; /* Adjusted padding */
-}
-
-nav img {
-    width: 150px;
-    margin-bottom: 10px; /* Adjusted for spacing */
+    padding: 20px;
 }
 
 nav a {
-    margin: 10px 0; /* Adjusted margin */
+    margin: 10px 0; /* Adjust margin for mobile */
     color: white;
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-nav a:hover {
-    background-color: #F1C40F;
+nav img {
+    width: 150px;
+    margin-bottom: 10px; /* Adjust margin for mobile */
 }
 
 .main-content {
@@ -52,58 +43,22 @@ nav a:hover {
     text-align: center;
 }
 
-.Licwhy {
-    display: flex;
-    flex-direction: column; /* Stack on mobile */
-    align-items: center;
-    padding-bottom: 3cm;
-}
-
-.Licwhy ul {
-    margin: 10px;
-    padding: 20px;
-}
-
-.Licwhy img {
-    width: 100%; /* Responsive width */
-    max-width: 300px; /* Limit max width */
-    border-radius: 10px;
-    margin: 20px 0; /* Spacing adjustments */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.def {
-    max-width: 600px;
-    background-color: #F1C40F;
-    color: darkblue;
-    padding: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    line-height: 1.6;
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
+.Licwhy,
 .Ourservices {
     display: flex;
-    flex-direction: column; /* Stack on mobile */
+    flex-direction: column; /* Adjust layout for smaller screens */
     align-items: center;
 }
 
-.Ourservices img {
-    width: 100%; /* Responsive width */
-    max-width: 200px; /* Limit max width */
+.Licwhy img, .Ourservices img {
+    width: 100%; /* Responsive image */
+    max-width: 300px; /* Limit max width */
     border-radius: 10px;
-    margin: 20px 0; /* Spacing adjustments */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    margin: 10px 0;
 }
 
-.services {
-    max-width: 600px;
+.def, .services {
+    max-width: 90%; /* Responsive layout */
     background-color: #F1C40F;
     color: darkblue;
     padding: 20px;
@@ -113,17 +68,12 @@ nav a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     line-height: 1.6;
     text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.policies {
-    text-align: center;
-    padding: 20px;
 }
 
 .policybox {
     display: inline-block;
-    width: 300px;
+    width: 90%; /* Responsive width */
+    max-width: 300px; /* Limit max width */
     padding: 15px;
     margin: 10px;
     background-color: #ffffff;
@@ -134,11 +84,6 @@ nav a:hover {
     transition: transform 0.3s ease;
 }
 
-.policybox:hover {
-    transform: scale(1.05); /* Adjusted scale */
-    background-color: lightgray;
-}
-
 footer {
     margin-top: 20px;
     padding: 10px;
@@ -147,44 +92,31 @@ footer {
     text-align: center;
 }
 
-a {
-    text-decoration: none;
-    color: white;
+.contact p {
+    margin: 5px 0; /* Adjust margin for mobile */
 }
 
-/* Mobile-Friendly Adjustments */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     header nav {
-        flex-direction: column; /* Stack navigation items */
-        padding: 10px; /* Adjust padding */
-    }
-
-    header h1 {
-        font-size: 1.2rem; /* Adjusted font size */
-        text-align: center;
-        margin: 10px 0; /* Spacing adjustments */
-    }
-
-    .main-content {
-        padding: 10px; /* Adjust padding */
-    }
-
-    .policybox {
-        width: 100%; /* Full width on mobile */
-        margin: 10px 0; /* Adjusted margin */
-    }
-
-    .Licwhy,
-    .Ourservices {
-        flex-direction: column; /* Stack items */
-        align-items: center; /* Center align */
-    }
-
-    .def, .services {
-        margin-left: 0; /* Remove margin on mobile */
+        flex-direction: row; /* Horizontal layout for larger screens */
+        justify-content: space-between; /* Space items evenly */
     }
 
     nav a {
-        font-size: 1rem; /* Adjusted font size */
+        margin: 0 10px; /* Adjust margin for desktop */
+    }
+
+    .Licwhy, .Ourservices {
+        flex-direction: row; /* Horizontal layout for larger screens */
+        justify-content: space-around;
+    }
+
+    .def, .services {
+        flex: 1;
+        margin: 0 10px; /* Add margin between columns */
+    }
+
+    .policybox {
+        width: 48%; /* Two boxes per row on larger screens */
     }
 }
