@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname,'public')));
 
 
 //mongodb connection
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 10000 })
 .then(()=>console.log("Connected to the mongodb"))
 .catch((err)=> console.error('MongoDb connection error:', err));
 
