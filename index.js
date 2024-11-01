@@ -45,7 +45,57 @@ app.post('/book', async(req,res)=>{
             appointment_time
         });
         await appointment.save();
-        res.send('<h1>Appointment Booked Successfully</h1><a href="/">Back to Home</a>');
+        res.send(` <html>
+                <head>
+                    <title>Appointment Booked</title>
+                    <style>
+                        body {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            margin: 0;
+                            font-family: Arial, sans-serif;
+                            background: linear-gradient(135deg, #f9a825, #ffeb3b);
+                            color: #333;
+                            text-align: center;
+                        }
+                        .container {
+                            background: white;
+                            padding: 30px;
+                            border-radius: 12px;
+                            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+                            max-width: 400px;
+                        }
+                        h1 {
+                            color: #4caf50;
+                            font-size: 24px;
+                            margin-bottom: 10px;
+                        }
+                        p {
+                            color: #555;
+                            font-size: 18px;
+                        }
+                        .icon {
+                            font-size: 50px;
+                            color: #4caf50;
+                            margin-bottom: 15px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <div class="icon">✔️</div>
+                        <h1>Appointment Booked Successfully</h1>
+                        <p>You will be redirected to the homepage shortly...</p>
+                        <script>
+                            setTimeout(function() {
+                                window.location.href = "/";
+                            }, 5000); // Redirect after 1 second
+                        </script>
+                    </div>
+                </body>
+            </html>`);
     }catch (error){
         console.error('Error booking appointment: ', error);
         res.status(500).send('Error booking appointment');
@@ -54,7 +104,7 @@ app.post('/book', async(req,res)=>{
 
 
 //admin route to view appointments
-app.get('/admin/appointments', async (req,res)=>{
+app.get('/hidden-123-admin/appointments', async (req,res)=>{
     try{
         const appointments=await Appointment.find();
         res.json(appointments);
